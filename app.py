@@ -423,7 +423,7 @@ with st.sidebar:
     
     st.markdown("---")
     st.markdown("#### 📱 **Acesso Mobile ao Protótipo**")
-    url_publica = "https://share.streamlit.io"
+    url_publica = "https://strainerpoint.site"
     qr_bytes = gerar_qr_code(url_publica)
     st.image(qr_bytes, caption="Aponte a câmera para testar", width=140)
     st.caption("🔒 **Auditabilidade:** Responde ao teste dos 3 anos (quem, quando, regra e prova).")
