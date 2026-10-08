@@ -6,7 +6,8 @@ import hashlib
 import qrcode
 import io
 from datetime import datetime
-import base64
+import base64 # yuri adicionou
+import textwrap #yuri adicionou
 
 # ==============================================================================
 # 1. CONFIGURAÇÕES DA PÁGINA E DESIGN SYSTEM (MONA SANS + HUBOT SANS + NEON)
@@ -447,12 +448,12 @@ with st.sidebar:
     st.image(qr_bytes, caption="Aponte a câmera para testar", width=140)
     st.caption("🔒 **Auditabilidade:** Responde ao teste dos 3 anos (quem, quando, regra e prova).")
 
-     # CRÉDITOS FORMATADOS SEM EXIBIR CÓDIGO CRU
-    creditos_html = """
-    <div style="
-        background: rgba(0, 255, 135, 0.04); 
-        border: 1px solid rgba(0, 255, 135, 0.18); 
-        border-radius: 12px; 
+    # CRÉDITOS PROCESSADOS COM DEDENT PARA ELIMINAR O CÓDIGO VERDE
+    creditos_limpos = textwrap.dedent("""
+        <div style="
+            background: rgba(0, 255, 135, 0.04); 
+            border: 1px solid rgba(0, 255, 135, 0.18); 
+            border-radius: 12px; 
             padding: 12px; 
             margin-top: 10px;
             box-shadow: 0 0 15px rgba(0, 255, 135, 0.05);
@@ -487,10 +488,10 @@ with st.sidebar:
                 </p>
             </div>
         </div>
-    """
+    """)
     
     st.write("")
-    st.markdown(creditos_html, unsafe_allow_html=True)
+    st.markdown(creditos_limpos, unsafe_allow_html=True)
 
 
 # ==============================================================================
