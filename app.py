@@ -449,49 +449,21 @@ with st.sidebar:
     st.caption("🔒 **Auditabilidade:** Responde ao teste dos 3 anos (quem, quando, regra e prova).")
 
     # CRÉDITOS PROCESSADOS COM DEDENT PARA ELIMINAR O CÓDIGO VERDE
-    creditos_limpos = textwrap.dedent("""
-        <div style="
-            background: rgba(0, 255, 135, 0.04); 
-            border: 1px solid rgba(0, 255, 135, 0.18); 
-            border-radius: 12px; 
-            padding: 12px; 
-            margin-top: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 135, 0.05);
-        ">
-            <p style="
-                margin: 0 0 8px 0; 
-                font-family: var(--font-tech); 
-                font-size: 10px; 
-                color: #00FF87; 
-                text-transform: uppercase; 
-                letter-spacing: 1.2px;
-                text-align: center;
-                font-weight: 700;
-            ">⚡ CORPO TÉCNICO</p>
-            
-            <div style="text-align: left; font-size: 12px; font-family: var(--font-main); line-height: 1.4;">
-                <p style="margin: 3px 0; color: #E2E8F0;">
-                    <b style="color: #FFFFFF;">Vitória Bravo Araújo Matos</b><br>
-                    <span style="color: #94A3B8; font-size: 11px;">Líder e Designer</span>
-                </p>
-                <p style="margin: 6px 0 3px 0; color: #E2E8F0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px;">
-                    <b style="color: #FFFFFF;">Yuri Gabriel da Silva Fernandes</b><br>
-                    <span style="color: #94A3B8; font-size: 11px;">Programador</span>
-                </p>
-                <p style="margin: 6px 0 3px 0; color: #E2E8F0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px;">
-                    <b style="color: #FFFFFF;">Keyciane dos Santos Cruz</b><br>
-                    <span style="color: #94A3B8; font-size: 11px;">Programadora</span>
-                </p>
-                <p style="margin: 6px 0 0 0; color: #E2E8F0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px;">
-                    <b style="color: #FFFFFF;">Kayroni de Melo Alvarenga</b><br>
-                    <span style="color: #94A3B8; font-size: 11px;">Engenheiro de Software</span>
-                </p>
-            </div>
-        </div>
-    """)
     
     st.write("")
-    st.markdown(creditos_limpos, unsafe_allow_html=True)
+    texto_creditos = (
+        "⚡ CORPO TÉCNICO\n\n"
+        "Vitória Bravo Araújo Matos\n"
+        "└─ Líder e Designer\n\n"
+        "Yuri Gabriel da Silva Fernandes\n"
+        "└─ Programador\n\n"
+        "Keyciane dos Santos Cruz\n"
+        "└─ Programadora\n\n"
+        "Kayroni de Melo Alvarenga\n"
+        "└─ Engenheiro de Software"
+    )
+    st.code(texto_creditos, language="text")
+
 
 
 # ==============================================================================
