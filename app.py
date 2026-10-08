@@ -572,7 +572,7 @@ elif tela == "3. Mesa de Análise & Frascati":
         with st.expander("🛠️ **Painel de Ação: Simular Saneamento da Ressalva (Live Demo)**", expanded=not saneado):
             if not saneado:
                 st.write("A equipe do projeto foi notificada a apresentar ensaios complementares para sanar a ressalva do cenário de sequeiro.")
-                col_up, col_btn = st.columns()
+                col_up, col_btn = st.columns([3, 1])
                 with col_up:
                     st.text_input("Evidência Primária Complementar:", value="EVID_MED_08_complementar.csv (Ensaios de Hiperparâmetros v2)")
                 with col_btn:
