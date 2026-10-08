@@ -1,0 +1,23 @@
+[server]
+# Desativa checagens de CORS para evitar bloqueio de WebSockets em redes corporativas/móveis
+enableCORS = false
+enableXsrfProtection = false
+
+# Limite máximo de tamanho para upload de arquivos em MB (ex: dossiês e CSVs)
+maxUploadSize = 50
+
+# Mantém a porta padrão (8501) ou a porta configurada no serviço de nuvem
+port = 8501
+headless = true
+
+[browser]
+# Desativa a coleta de telemetria/estatísticas para economizar processamento
+gatherUsageStats = false
+
+[theme]
+# Mantém a base escura nativa em sincronia com o CSS personalizado
+base = "dark"
+primaryColor = "#00FF87"
+backgroundColor = "#030604"
+secondaryBackgroundColor = "#050a07"
+textColor = "#E2E8F0"
