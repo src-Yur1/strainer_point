@@ -6,6 +6,7 @@ import hashlib
 import qrcode
 import io
 from datetime import datetime
+import base64
 
 # ==============================================================================
 # 1. CONFIGURAÇÕES DA PÁGINA E DESIGN SYSTEM (MONA SANS + HUBOT SANS + NEON)
@@ -406,18 +407,28 @@ for i in range(25, 41):
 # ==============================================================================
 with st.sidebar:
     st.markdown('<div class="hero-badge">BANCO DO NORDESTE • P&D</div>', unsafe_allow_html=True)
+    
+    # Código que lê e embute a imagem de forma segura no HTML
+    try:
+        with open("space_invader.jpg", "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read()).decode()
+        img_src = f"data:image/jpeg;base64,{encoded_string}"
+    except Exception:
+        img_src = "" # Caso a imagem falte por um segundo, o app não trava
+
     st.markdown(
-        """
+        f"""
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 5px;">
-            <img src="app/static/space_invader.jpg" style="width: 32px; height: 32px; border-radius: 6px; object-fit: cover;">
+            <img src="{img_src}" style="width: 32px; height: 32px; border-radius: 6px; object-fit: cover;">
             <h2 style="margin: 0; font-family: var(--font-main); font-weight: 800; color: #FFFFFF; font-size: 24px;">Strainer Point</h2>
         </div>
         """, 
         unsafe_allow_html=True
     )
+    
     st.caption("Sistema de Apoio à Decisão – Lei do Bem")
     st.markdown("---")
-    
+ # ==============================================================================
     tela = st.radio(
         "Navegação:",
         [
@@ -435,6 +446,52 @@ with st.sidebar:
     qr_bytes = gerar_qr_code(url_publica)
     st.image(qr_bytes, caption="Aponte a câmera para testar", width=140)
     st.caption("🔒 **Auditabilidade:** Responde ao teste dos 3 anos (quem, quando, regra e prova).")
+
+# CRÉDITOS 
+    st.write("")
+    st.markdown(
+        """
+        <div style="
+            background: rgba(0, 255, 135, 0.04); 
+            border: 1px solid rgba(0, 255, 135, 0.18); 
+            border-radius: 12px; 
+            padding: 12px; 
+            margin-top: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 135, 0.05);
+        ">
+            <p style="
+                margin: 0 0 8px 0; 
+                font-family: var(--font-tech); 
+                font-size: 10px; 
+                color: #00FF87; 
+                text-transform: uppercase; 
+                letter-spacing: 1.2px;
+                text-align: center;
+                font-weight: 700;
+            ">⚡ CORPO TÉCNICO</p>
+            
+            <div style="text-align: left; font-size: 12px; font-family: var(--font-main); line-height: 1.4;">
+                <p style="margin: 3px 0; color: #E2E8F0;">
+                    <b style="color: #FFFFFF;">Vitória Bravo Araújo Matos</b><br>
+                    <span style="color: #94A3B8; font-size: 11px;">Líder e Designer</span>
+                </p>
+                <p style="margin: 6px 0 3px 0; color: #E2E8F0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px;">
+                    <b style="color: #FFFFFF;">Yuri Gabriel da Silva Fernandes</b><br>
+                    <span style="color: #94A3B8; font-size: 11px;">Programador</span>
+                </p>
+                <p style="margin: 6px 0 3px 0; color: #E2E8F0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px;">
+                    <b style="color: #FFFFFF;">Keyciane dos Santos Cruz</b><br>
+                    <span style="color: #94A3B8; font-size: 11px;">Programadora</span>
+                </p>
+                <p style="margin: 6px 0 0 0; color: #E2E8F0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px;">
+                    <b style="color: #FFFFFF;">Kayroni de Melo Alvarenga</b><br>
+                    <span style="color: #94A3B8; font-size: 11px;">Engenheiro de Software</span>
+                </p>
+            </div>
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
 
 # ==============================================================================
 # TELA 1: INGESTÃO & PROCESSAMENTO
