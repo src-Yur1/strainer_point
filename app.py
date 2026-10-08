@@ -11,8 +11,8 @@ from datetime import datetime
 # 1. CONFIGURAÇÕES DA PÁGINA E DESIGN SYSTEM (MONA SANS + HUBOT SANS + NEON)
 # ==============================================================================
 st.set_page_config(
-    page_title="Strainer Point | SAD Lei do Bem",
-    page_icon="🛡️",
+   page_title="Strainer Point | SAD Lei do Bem",
+    page_icon="space_invader.jpg",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -406,8 +406,16 @@ for i in range(25, 41):
 # ==============================================================================
 with st.sidebar:
     st.markdown('<div class="hero-badge">BANCO DO NORDESTE • P&D</div>', unsafe_allow_html=True)
-    st.markdown("## 🛡️ **Strainer Point**")
-    st.caption("Sistema de Apoio à Decisão — Lei do Bem")
+    st.markdown(
+        """
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 5px;">
+            <img src="app/static/space_invader.jpg" style="width: 32px; height: 32px; border-radius: 6px; object-fit: cover;">
+            <h2 style="margin: 0; font-family: var(--font-main); font-weight: 800; color: #FFFFFF; font-size: 24px;">Strainer Point</h2>
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
+    st.caption("Sistema de Apoio à Decisão – Lei do Bem")
     st.markdown("---")
     
     tela = st.radio(
